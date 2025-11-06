@@ -1,3 +1,10 @@
+## 🎬 Canlı Eğitim Simülasyonu
+
+3 epoch boyunca adım adım **ileri besleme** ve **geri yayılım** sürecini gösteren animasyon:
+
+![Eğitim Simülasyonu](./image/training_simulation.gif)
+
+
 # 🧠 Nöral Ağ Nedir?
 
 
