@@ -1,8 +1,6 @@
 # 🧠 Nöral Ağ Nedir?
 
-<p align="center">
-  <img src="/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-04-02-19-20251027_04h02m03s_grim.png" alt="Nöral Ağ Görseli">
-</p>
+![Nöral Ağ Görseli](./image/neural_network.png)
 
 Nöral ağ, bilgisayarın verilerden öğrenmesini sağlayan bir sistemdir.
 
@@ -216,7 +214,7 @@ Sinir ağlarının öğrenme sürecinin kritik aşaması olan **Geri Yayılım (
 
 Modelin ileri besleme (forward pass) aşaması tamamlandığında, henüz herhangi bir hata (Loss) hesaplanmamış ve bu hata geriye doğru yayılmaya başlamamıştır. Bu nedenle, sisteme dahil olan tüm değişkenlerin hataya katkısı (gradyanı) başlangıçta **mantıksal olarak 0'dır.**
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-26-13-42-57-output1.png)
+![](./image/output1.png)
 
 ###### 2. Geri Yayılıma Başlama Noktası: ($\mathbf{L}$'nin $\mathbf{L}$'ye Göre Türevi)
 
@@ -238,7 +236,7 @@ $$
 
 Daha önce gördüğümüz gibi, bir değişkenin kendisine göre türevi daima $\mathbf{1}$'dir. Yani $\mathbf{L}$'nin kendisindeki bir birimlik değişim, $\mathbf{L}$'yi tam olarak bir birim değiştirir. Bu $\mathbf{1}$ sayısı, Geri Yayılım zincirine verdiğimiz **ilk ve en önemli itme gücüdür**. Bu gücü alıp, Zincir Kuralı gereği geriye doğru tüm $\mathbf{Value}$ nesnelerinin yerel türevleriyle çarpmaya başlarız.
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-26-14-04-59-output2.png)
+![](./image/output2.png)
 
 ### 3. Sorumluluğu Dağıtma: $\mathbf{L}$'nin $\mathbf{d}$ ve $\mathbf{f}$ İle Türevlerini Bulma
 
@@ -260,7 +258,9 @@ Geri Yayılımda başlangıç komutunu ($\mathbf{L.grad = 1}$) verdikten sonra, 
 
 Bu sefer $\mathbf{f}$'nin $\mathbf{L}$'ye olan yerel sorumluluğunu buluyoruz. Bu, ilk durumun simetriğidir. Yani Sonuç **d** dir.
 
-Özetle, $\mathbf{L = d \cdot f}$ çarpma işlemi için, $\mathbf{d}$'nin gradyanı ($\frac{dL}{dd}$) direkt olarak $\mathbf{f}$'nin veri değeri (data) olur. Aynı şekilde $\mathbf{f}$'nin gradyanı $\frac{dL}{df}$, $\mathbf{d}$'nin veri değeri (data) olur.![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-26-15-20-22-output3.png)
+Özetle, $\mathbf{L = d \cdot f}$ çarpma işlemi için, $\mathbf{d}$'nin gradyanı ($\frac{dL}{dd}$) direkt olarak $\mathbf{f}$'nin veri değeri (data) olur. Aynı şekilde $\mathbf{f}$'nin gradyanı $\frac{dL}{df}$, $\mathbf{d}$'nin veri değeri (data) olur.
+
+![](./image/output3.png)
 
 **KISACA**
 Unutmayalım ki, $\mathbf{L = d \cdot f}$ işleminde biz **sadece bir sayının** (mesela $d$'nin) değiştiğini düşünüyoruz. Diğer sayı ($f$) o anlık için **sabittir**.
@@ -339,7 +339,7 @@ $\mathbf{\frac{\partial L}{\partial e} = (-2) \times (1) = -2}$
 
 **Özetle:** Bir toplama işleminde, $\mathbf{d}$'den geriye gelen hata sinyali ($-2$), iki girdiye ($\mathbf{c}$ ve $\mathbf{e}$) **değişmeden, eşit olarak** dağıtılır.
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-26-17-11-53-output4.png)
+![](./image/output4.png)
 
 ### 5. Sorumluluğu Dağıtma: $\mathbf{e}$'den $\mathbf{a}$ ve $\mathbf{b}$'ye Geçiş (Zincirin Sonu)
 
@@ -395,7 +395,7 @@ $\mathbf{\frac{\partial L}{\partial b} = (-2) \times (2.0) = \mathbf{-4.0}}$
 
 **Geri Yayılım Bitti:** Tüm gradyanlar hesaplandı! Sinir ağı artık bu değerleri ($\mathbf{6.0}$, $\mathbf{-4.0}$, $-2$ vb.) kullanarak ağırlıklarını güncelleyebilir.
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-26-17-25-04-output5.png)
+![](./image/output5.png)
 
 Harika! Tüm o türev hesaplamalarını ve zincir kuralını neden yaptığımızı, yani Geri Yayılımın (Backpropagation) sinir ağlarında ne anlama geldiğini şimdi özetliyoruz.
 
@@ -439,9 +439,7 @@ Geri Yayılımı bitirerek elde ettiğimiz tüm $\mathbf{grad}$ değerleri, sini
 
 # 2. Örnek: Manuel Geri Yayılım
 
-<p align="center">
-  <img src="/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-11-05-17-55-35-20251027_04h02m03s_grim.png" alt="2. Örnek Yapısı">
-</p>
+![2. Örnek Yapısı](./image/example2_structure.png)
 Şimdi yapıya göre ikinci bir manuel geri yayılım yapacağız. Kısaca yapacağımız şey:
 
 **Girdiler ve Ağırlıklar:** $x1$ ve $x2$ girdilerimiz olacak ve $w1$ ve $w2$ ağırlıklarımız olacak bu girdiler için. Bu, hücre gövdesinin solunda kalan kısım.
@@ -464,17 +462,13 @@ Bu bizim genel ileri besleme sistemimiz olacak. Şimdi bu adımdan sonra geri ya
 
 ## 1. Adım: Başlangıç Durumu
 
-<p align="center">
-  <img src="/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-04-55-15-output6.png" alt="İlk Aşama - Tüm Gradyanlar 0">
-</p>
+![İlk Aşama - Tüm Gradyanlar 0](./image/output6.png)
 
 İlk aşamada tüm gradyanlar 0 olur.
 
 Şimdi son olan gradyanı bulalım. En üst kısımda anlattığımız için, bir değerin kendine göre türevi her zaman birdir, yani $\frac{do}{do} = 1$ olur. O yüzden $o$'nun türevi $1$ olur.
 
-<p align="center">
-  <img src="/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-04-56-46-output7.png" alt="o'nun Türevi">
-</p>
+![o'nun Türevi](./image/output7.png)
 
 ## 2. Adım: $n$'nin Türevini Bulma
 
@@ -528,9 +522,7 @@ Bu da grafikten $o.\text{data} = 0.7071$ dir ve $1 - 0.7071^2 = 0.5$ olur.
 
 O zaman $n$'nin gradyanı $0.5$ olur.
 
-<p align="center">
-  <img src="/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-05-17-22-output8.png" alt="n'nin Gradyanı">
-</p>
+![n'nin Gradyanı](./image/output8.png)
 
 # 3. Sorumluluğu Dağıtma: (o)’dan (x1w1x2w2) ve (b)’ye Zincirleme
 
@@ -602,7 +594,7 @@ $\frac{\partial o}{\partial b} = 0.5 \times 1 = 0.5 $
 
 **Özetle:** Bir toplama işleminde, **o’dan geriye gelen hata sinyali (0.5)**, iki girdiye ((x1w1x2w2) ve b) **değişmeden, eşit olarak** dağıtılır.
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-06-31-14-output9.png)
+![](./image/output9.png)
 
 ## 4. Adım: Sorumluluğu Dağıtma - $o$'dan $x1w1$ ve $x2w2$'ye Zincirleme
 
@@ -682,7 +674,7 @@ $\frac{\partial o}{\partial w2} = \frac{\partial o}{\partial x2w2} \cdot \frac{\
 
 > **Not:** Burada w2 = 0 olduğu için gradyan da 0 oldu; yani bu ağırlık hataya katkıda bulunmuyor.
 
-![](/home/koesan/.var/app/com.github.marktext.marktext/config/marktext/images/2025-10-27-07-47-49-output10.png)
+![](./image/output10.png)
 
 Elbette! Tüm bu teknik akışı, notlarınıza ekleyebileceğiniz resmi, sade ve öz bir dille özetliyorum.
 
