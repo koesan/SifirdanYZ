@@ -1,6 +1,8 @@
 # 🧠 Nöral Ağ Nedir?
 
+
 ![Nöral Ağ Görseli](./image/neural_network.png)
+
 
 Nöral ağ, bilgisayarın verilerden öğrenmesini sağlayan bir sistemdir.
 
@@ -214,7 +216,9 @@ Sinir ağlarının öğrenme sürecinin kritik aşaması olan **Geri Yayılım (
 
 Modelin ileri besleme (forward pass) aşaması tamamlandığında, henüz herhangi bir hata (Loss) hesaplanmamış ve bu hata geriye doğru yayılmaya başlamamıştır. Bu nedenle, sisteme dahil olan tüm değişkenlerin hataya katkısı (gradyanı) başlangıçta **mantıksal olarak 0'dır.**
 
+
 ![](./image/output1.png)
+
 
 ###### 2. Geri Yayılıma Başlama Noktası: ($\mathbf{L}$'nin $\mathbf{L}$'ye Göre Türevi)
 
@@ -236,7 +240,9 @@ $$
 
 Daha önce gördüğümüz gibi, bir değişkenin kendisine göre türevi daima $\mathbf{1}$'dir. Yani $\mathbf{L}$'nin kendisindeki bir birimlik değişim, $\mathbf{L}$'yi tam olarak bir birim değiştirir. Bu $\mathbf{1}$ sayısı, Geri Yayılım zincirine verdiğimiz **ilk ve en önemli itme gücüdür**. Bu gücü alıp, Zincir Kuralı gereği geriye doğru tüm $\mathbf{Value}$ nesnelerinin yerel türevleriyle çarpmaya başlarız.
 
+
 ![](./image/output2.png)
+
 
 ### 3. Sorumluluğu Dağıtma: $\mathbf{L}$'nin $\mathbf{d}$ ve $\mathbf{f}$ İle Türevlerini Bulma
 
@@ -260,7 +266,9 @@ Bu sefer $\mathbf{f}$'nin $\mathbf{L}$'ye olan yerel sorumluluğunu buluyoruz. B
 
 Özetle, $\mathbf{L = d \cdot f}$ çarpma işlemi için, $\mathbf{d}$'nin gradyanı ($\frac{dL}{dd}$) direkt olarak $\mathbf{f}$'nin veri değeri (data) olur. Aynı şekilde $\mathbf{f}$'nin gradyanı $\frac{dL}{df}$, $\mathbf{d}$'nin veri değeri (data) olur.
 
+
 ![](./image/output3.png)
+
 
 **KISACA**
 Unutmayalım ki, $\mathbf{L = d \cdot f}$ işleminde biz **sadece bir sayının** (mesela $d$'nin) değiştiğini düşünüyoruz. Diğer sayı ($f$) o anlık için **sabittir**.
@@ -339,7 +347,9 @@ $\mathbf{\frac{\partial L}{\partial e} = (-2) \times (1) = -2}$
 
 **Özetle:** Bir toplama işleminde, $\mathbf{d}$'den geriye gelen hata sinyali ($-2$), iki girdiye ($\mathbf{c}$ ve $\mathbf{e}$) **değişmeden, eşit olarak** dağıtılır.
 
+
 ![](./image/output4.png)
+
 
 ### 5. Sorumluluğu Dağıtma: $\mathbf{e}$'den $\mathbf{a}$ ve $\mathbf{b}$'ye Geçiş (Zincirin Sonu)
 
@@ -395,7 +405,9 @@ $\mathbf{\frac{\partial L}{\partial b} = (-2) \times (2.0) = \mathbf{-4.0}}$
 
 **Geri Yayılım Bitti:** Tüm gradyanlar hesaplandı! Sinir ağı artık bu değerleri ($\mathbf{6.0}$, $\mathbf{-4.0}$, $-2$ vb.) kullanarak ağırlıklarını güncelleyebilir.
 
+
 ![](./image/output5.png)
+
 
 Harika! Tüm o türev hesaplamalarını ve zincir kuralını neden yaptığımızı, yani Geri Yayılımın (Backpropagation) sinir ağlarında ne anlama geldiğini şimdi özetliyoruz.
 
@@ -439,7 +451,10 @@ Geri Yayılımı bitirerek elde ettiğimiz tüm $\mathbf{grad}$ değerleri, sini
 
 # 2. Örnek: Manuel Geri Yayılım
 
+
 ![2. Örnek Yapısı](./image/example2_structure.png)
+
+
 Şimdi yapıya göre ikinci bir manuel geri yayılım yapacağız. Kısaca yapacağımız şey:
 
 **Girdiler ve Ağırlıklar:** $x1$ ve $x2$ girdilerimiz olacak ve $w1$ ve $w2$ ağırlıklarımız olacak bu girdiler için. Bu, hücre gövdesinin solunda kalan kısım.
@@ -462,13 +477,17 @@ Bu bizim genel ileri besleme sistemimiz olacak. Şimdi bu adımdan sonra geri ya
 
 ## 1. Adım: Başlangıç Durumu
 
+
 ![İlk Aşama - Tüm Gradyanlar 0](./image/output6.png)
+
 
 İlk aşamada tüm gradyanlar 0 olur.
 
 Şimdi son olan gradyanı bulalım. En üst kısımda anlattığımız için, bir değerin kendine göre türevi her zaman birdir, yani $\frac{do}{do} = 1$ olur. O yüzden $o$'nun türevi $1$ olur.
 
+
 ![o'nun Türevi](./image/output7.png)
+
 
 ## 2. Adım: $n$'nin Türevini Bulma
 
@@ -522,7 +541,9 @@ Bu da grafikten $o.\text{data} = 0.7071$ dir ve $1 - 0.7071^2 = 0.5$ olur.
 
 O zaman $n$'nin gradyanı $0.5$ olur.
 
+
 ![n'nin Gradyanı](./image/output8.png)
+
 
 # 3. Sorumluluğu Dağıtma: (o)’dan (x1w1x2w2) ve (b)’ye Zincirleme
 
@@ -594,7 +615,9 @@ $\frac{\partial o}{\partial b} = 0.5 \times 1 = 0.5 $
 
 **Özetle:** Bir toplama işleminde, **o’dan geriye gelen hata sinyali (0.5)**, iki girdiye ((x1w1x2w2) ve b) **değişmeden, eşit olarak** dağıtılır.
 
+
 ![](./image/output9.png)
+
 
 ## 4. Adım: Sorumluluğu Dağıtma - $o$'dan $x1w1$ ve $x2w2$'ye Zincirleme
 
@@ -674,7 +697,9 @@ $\frac{\partial o}{\partial w2} = \frac{\partial o}{\partial x2w2} \cdot \frac{\
 
 > **Not:** Burada w2 = 0 olduğu için gradyan da 0 oldu; yani bu ağırlık hataya katkıda bulunmuyor.
 
+
 ![](./image/output10.png)
+
 
 Elbette! Tüm bu teknik akışı, notlarınıza ekleyebileceğiniz resmi, sade ve öz bir dille özetliyorum.
 
